@@ -129,7 +129,7 @@ export default function BlitzApp() {
       <footer className="footnote">
         All processing happens in your browser — media never leaves your device<br />
         blitz · reference grading → LUT playground → creator community<br />
-        <a href="/privacy">Privacy Policy</a> · <a href="mailto:john.manoah@gmail.com">Contact</a>
+        <a href="/privacy">Privacy Policy</a> · <a href="mailto:abel.manoah@gmail.com">Contact</a>
       </footer>
       <div className="toast" id="toast" role="status" aria-live="polite"></div>
 

@@ -83,7 +83,7 @@ export default function PrivacyPage() {
 
         <h2>Contact</h2>
         <p>
-          Questions or data requests: <a href="mailto:john.manoah@gmail.com">john.manoah@gmail.com</a>
+          Questions or data requests: <a href="mailto:abel.manoah@gmail.com">abel.manoah@gmail.com</a>
         </p>
 
         <p><a href="/">← Back to blitz</a></p>
