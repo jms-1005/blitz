@@ -30,6 +30,14 @@ export default function BlitzApp() {
             <p className="served" id="lutCounter" hidden><b id="lutCounterNum">0</b> LUTs served</p>
           </div>
 
+          <p className="pnote">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+              <rect x="4" y="10" width="16" height="11" rx="1" />
+              <path d="M8 10V7a4 4 0 0 1 8 0v3" />
+            </svg>
+            <span>All processing happens in your browser — media never leaves your device</span>
+          </p>
+
           <div className="drops">
             <div className="drop" id="dropTarget" role="button" tabIndex={0}
                  aria-label="Upload your photo or video — opens a file picker">
@@ -104,15 +112,15 @@ export default function BlitzApp() {
               <div className="hint" id="exportHint">Works in DaVinci Resolve, Premiere Pro (Lumetri), Final Cut, Photoshop &amp; Lightroom Classic.</div>
 
               <div className="adslot rail">
-                <div className="adlabel">Advertisement</div>
-                <div className="adbody">ad slot<br />300 × 250</div>
+                <div className="adlabel">Ad space</div>
+                <div className="adbody"><a href="mailto:abel.manoah@gmail.com?subject=Advertising%20on%20blitzluts.com%20-%20300x250">Contact us for advertising opportunities</a><span>300 × 250</span></div>
               </div>
             </div>
           </div>
 
           <div className="adslot banner">
-            <div className="adlabel">Advertisement</div>
-            <div className="adbody">ad slot — 728 × 90</div>
+            <div className="adlabel">Ad space</div>
+            <div className="adbody"><a href="mailto:abel.manoah@gmail.com?subject=Advertising%20on%20blitzluts.com%20-%20728x90">Contact us for advertising opportunities</a><span>728 × 90</span></div>
           </div>
         </div>
 
@@ -129,7 +137,7 @@ export default function BlitzApp() {
       <footer className="footnote">
         All processing happens in your browser — media never leaves your device<br />
         blitz · reference grading → LUT playground → creator community<br />
-        <a href="/privacy">Privacy Policy</a> · <a href="mailto:abel.manoah@gmail.com">Contact</a>
+        <a href="/privacy">Privacy Policy</a> · <a href="mailto:abel.manoah@gmail.com">Contact</a> · <button type="button" id="feedbackLink" className="linklike">Give feedback</button>
       </footer>
       <div className="toast" id="toast" role="status" aria-live="polite"></div>
 

@@ -156,3 +156,48 @@ from (values
   ('Sepia Dust', 'sepia-dust', 'Nearly monochrome with a dusty warm tone — archival, timeless, restrained.', '{"vintage","monochrome","archival"}', '{"v":1,"base":{"type":"look","ops":{"mono":true,"monoKeep":0.15,"lift":0.07,"contrast":0.02,"warm":0.035,"tint":0.01}},"trims":null}'::jsonb)
 ) as v(name, slug, description, tags, recipe)
 on conflict (slug) do nothing;
+-- ---------- "LUTs served" counter ----------
+-- (Previously this lived only in a comment in lib/counter.js, which is why it
+--  was easy to miss. Setup SQL belongs here.)
+create table if not exists counters (
+  id text primary key,
+  value bigint not null default 0
+);
+insert into counters (id, value) values ('luts_served', 0)
+  on conflict (id) do nothing;
+
+alter table counters enable row level security;
+drop policy if exists "counters are public to read" on counters;
+create policy "counters are public to read"
+  on counters for select using (true);
+
+-- No insert/update policy on the table: the ONLY write path is this +1 RPC,
+-- so nobody can set the counter to an arbitrary number.
+create or replace function increment_counter(counter_id text)
+returns bigint
+language sql
+security definer
+set search_path = public
+as $$
+  update counters set value = value + 1
+  where id = counter_id
+  returning value;
+$$;
+
+grant execute on function increment_counter(text) to anon, authenticated;
+
+-- ---------- feedback (fallback store if HubSpot is unreachable) ----------
+create table if not exists feedback (
+  id uuid primary key default gen_random_uuid(),
+  rating int not null check (rating between 1 and 5),
+  name text,
+  email text,
+  message text,
+  page text,
+  created_at timestamptz default now()
+);
+alter table feedback enable row level security;
+drop policy if exists "anyone can submit feedback" on feedback;
+create policy "anyone can submit feedback"
+  on feedback for insert with check (true);
+-- deliberately no select policy: the public can write, never read others' feedback
