@@ -26,7 +26,7 @@ public/         robots.txt, sitemap.xml, og-image.jpg, demo media, icons
 
 ```bash
 npm install
-npm run dev          # http://localhost:3000
+npm run dev          # http://localhost:3004
 npm run build        # static export to out/
 ```
 
