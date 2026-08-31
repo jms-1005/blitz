@@ -299,6 +299,47 @@
   .adslot.rail { width: 100%; height: 274px; }         /* 300x250 unit + label */
   .adslot.banner { max-width: 728px; height: 114px; margin: 44px auto 0; }  /* 728x90 leaderboard */
   .card.adcard .adbody { min-height: 180px; }
+  /* ---------- house ads ---------- */
+  /* Cross-promotion units for John's other properties. Text only, on purpose:
+     nothing to load, no layout shift, and no colour entering a UI whose whole
+     job is to stay neutral behind the user's image. The unit fills a .adslot,
+     so the reserved heights above still hold and CLS stays 0. */
+  .housead {
+    flex: 1; display: flex; flex-direction: column;
+    text-decoration: none; color: inherit;
+    transition: background 0.15s ease;
+  }
+  .housead:hover { background: var(--soft); }
+  .housead:focus-visible { outline: 2px solid var(--ink); outline-offset: -2px; }
+  .housead-label {
+    font-size: 8.5px; letter-spacing: 2px; text-transform: uppercase; color: #767676;
+    padding: 5px 8px; border-bottom: 1px solid var(--line);
+  }
+  .housead-body {
+    flex: 1; display: flex; flex-direction: column;
+    align-items: center; justify-content: center; gap: 9px;
+    padding: 14px 18px; text-align: center;
+  }
+  .housead-title {
+    font-size: 15px; font-weight: 300; letter-spacing: 0.3px; line-height: 1.35; color: var(--ink);
+  }
+  .housead-text { font-size: 11.5px; font-weight: 300; line-height: 1.7; color: var(--gray); }
+  .housead-cta {
+    font-size: 9.5px; letter-spacing: 1.6px; text-transform: uppercase;
+    color: var(--ink); text-decoration: underline; text-underline-offset: 3px;
+  }
+  /* The leaderboard leaves only ~90px of body height, so it runs horizontally. */
+  .adslot.banner .housead-body {
+    flex-direction: row; align-items: center; justify-content: center;
+    gap: 20px; text-align: left; padding: 10px 20px;
+  }
+  .adslot.banner .housead-title { font-size: 14px; flex-shrink: 0; }
+  .adslot.banner .housead-text { flex: 1; max-width: 340px; }
+  .adslot.banner .housead-cta { flex-shrink: 0; white-space: nowrap; }
+  @media (max-width: 640px) {
+    .adslot.banner .housead-body { flex-direction: column; gap: 7px; text-align: center; }
+    .adslot.banner .housead-text { display: none; }  /* no room; title and CTA carry it */
+  }
   /* ---------- auth ---------- */
   .userchip {
     position: absolute; right: 24px; top: 22px; display: flex; align-items: center; gap: 12px;

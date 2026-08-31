@@ -2,11 +2,12 @@
 
 import { useEffect } from "react";
 import { initBlitz } from "../lib/blitz-app";
+import { mountHouseAds } from "../lib/house-ads";
 
 /* Markup mirrors the browser-validated prototype 1:1 (same ids/classes);
    lib/blitz-app.js wires all behavior on mount. */
 export default function BlitzApp() {
-  useEffect(() => { initBlitz(); }, []);
+  useEffect(() => { initBlitz(); mountHouseAds(); }, []);
 
   return (
     <>
@@ -110,14 +111,14 @@ export default function BlitzApp() {
               </div>
               <div className="hint" id="exportHint">Works in DaVinci Resolve, Premiere Pro (Lumetri), Final Cut, Photoshop &amp; Lightroom Classic.</div>
 
-              <div className="adslot rail">
+              <div className="adslot rail" data-house-ad="rail">
                 <div className="adlabel">Ad space</div>
                 <div className="adbody"><a href="mailto:abel.manoah@gmail.com?subject=Advertising%20on%20blitzluts.com%20-%20300x250">Contact us for advertising opportunities</a><span>300 × 250</span></div>
               </div>
             </div>
           </div>
 
-          <div className="adslot banner">
+          <div className="adslot banner" data-house-ad="banner">
             <div className="adlabel">Ad space</div>
             <div className="adbody"><a href="mailto:abel.manoah@gmail.com?subject=Advertising%20on%20blitzluts.com%20-%20728x90">Contact us for advertising opportunities</a><span>728 × 90</span></div>
           </div>
