@@ -107,7 +107,6 @@ export default function BlitzApp() {
                 <input type="text" id="lutName" defaultValue="blitz-look-01" spellCheck="false" aria-label="File name for your exported LUT" />
                 <button className="primary" id="btnLut">Download .cube LUT</button>
                 <button id="btnImage">Download graded image</button>
-                <button id="btnPublish">Publish to community</button>
               </div>
               <div className="hint" id="exportHint">Works in DaVinci Resolve, Premiere Pro (Lumetri), Final Cut, Photoshop &amp; Lightroom Classic.</div>
 
@@ -126,18 +125,17 @@ export default function BlitzApp() {
 
         {/* ================= EXPLORE VIEW ================= */}
         <div className="view" id="viewExplore">
-          <div className="explore-head">
-            <h2>Community looks — rendered on <b>your</b> image.</h2>
-            <p id="exploreSub">Every thumbnail below is your shot, graded live in your browser. <u id="exploreUpload">Change image</u></p>
+          <div className="soon">
+            <h2>Community page coming soon…</h2>
+            <p>Publishing, browsing and remixing community looks are on the way. Until then the editor is fully open — no sign-up, and nothing you load ever leaves your device.</p>
           </div>
-          <div className="grid" id="lookGrid"></div>
         </div>
 
       </main>
       <footer className="footnote">
         All processing happens in your browser — media never leaves your device<br />
         blitz · reference grading → LUT playground → creator community<br />
-        <a href="/privacy">Privacy Policy</a> · <a href="mailto:abel.manoah@gmail.com">Contact</a> · <button type="button" id="feedbackLink" className="linklike">Give feedback</button>
+        <a href="/privacy">Privacy Policy</a> · <a href="mailto:abel.manoah@gmail.com">Contact</a> · <button type="button" id="feedbackLink" className="linklike">Give us feedback</button>
       </footer>
       <div className="toast" id="toast" role="status" aria-live="polite"></div>
 
@@ -183,12 +181,9 @@ export default function BlitzApp() {
         <div className="authcard">
           <div className="biglogo" aria-hidden="true">blitz</div>
           <h2 id="authTitle" className="authtitle">Join the blitz community.</h2>
-          <p id="authReason">Sign in to publish looks, follow creators, and download community LUTs.</p>
+          <p id="authReason">Sign in now and you'll be ready to publish the moment the community opens.</p>
           <div className="providers">
             <button data-provider="Google">Continue with Google</button>
-            <button data-provider="Meta">Continue with Meta</button>
-            <button data-provider="X">Continue with X</button>
-            <button data-provider="LinkedIn">Continue with LinkedIn</button>
           </div>
           <button className="close" id="authClose">Not now</button>
           <div className="note" id="authNote">Free forever for browsing and grading.</div>
